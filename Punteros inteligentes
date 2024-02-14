@@ -1,0 +1,50 @@
+/* Punteros inteligentes / Smart points (C++) */
+
+#include<iostream>
+
+
+class Alerta{
+	public:
+		Alerta(){
+			std::cout<<"Se ha llamado al constructor.\n";
+		}
+		
+		~Alerta(){
+			std::cout<<"Se ha llamado al destructor.\n";
+		}
+};
+
+int main(){
+	
+	// Alerta llamada; De esta forma, se llaman a los dos
+	
+	/*
+		Alerta * llamada = new Alerta;
+		
+		delete llamada;
+		
+		Sin el delete, solamente se llamaría al constructor pero no se liberaría la memoria
+	*/
+	
+	std::unique_ptr<Alerta> llamada { p:new Alerta } 
+	
+	// En cuanto se termina en contexto se libera automaticamente la memoria
+	
+	return 0;
+}
+
+/*
+
+	CONCLUSION
+
+Los punteros inteligentes son una forma de usar punteros pero con la diferencia que estos
+se eliminan una vez terminan de usarse, de esta forma es más facil liberar la memoria ya que sabemos 
+que no importa que flujo tenga el codigo, siempre va a ser liberada esta parte de la memoria.
+
+	PROBLEMAS
+	
+Se me complica mucho los ejemplos en los que se pudiera usar, necesitaria tomarles mucha practica a 
+este tipo de punteros para poder realmente tomar un aprendizaje solido, ademas siento que mi conclusion es 
+vaga lo cual necesitaria reforzar.
+	
+*/
